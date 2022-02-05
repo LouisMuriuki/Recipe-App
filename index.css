@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:ital,wght@0,100;0,300;1,200&display=swap');
+* {
+    box-sizing: border-box;
+}
+body{
+    font-family: "Poppins" Montserrat;
+    margin: 0;
+    padding:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.mobile-container{
+    max-width: 480px;
+    border-radius: 3px;
+}
+.heading{
+    justify-content: center;
+    align-items: center;
+    padding-right:20px;
+}
+img{
+    max-width: 100%;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  
+}
+header input{
+    display: none;
+    width: 100px;
+    border-radius: 3px;
+    border: none;
+    outline:none;
+ 
+}
+header button{
+    outline:none;
+    border :none;
+    background-color: #fff;
+    padding-right:8px;
+}
+header button.hover{
+    border: none;
+    cursor: pointer;    
+}
+header button.active{
+    
+    border: none;
+    cursor: pointer; 
+}
+.fav-container {
+    max-width: 480px;
+    background-color: rgb(238, 238, 195);
+    border-radius: 5px;
+    text-align: center;
+}
+.fav-container h5{
+    text-align: center;
+}
+.fav-meals{
+    padding: 0px;
+   
+}
+.fav-meals ul{
+    padding-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  
+}
+.fav-meals ul li{
+    padding: 5px;
+}
+.fav-meals ul li img{
+    border: 1px solid #444;
+    border-radius: 50%;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+.fav-meals ul li span{
+    font-size: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.meals{
+    margin-bottom: 18px;
+}
+.meal{
+    margin: 18px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px #eef3a4;
+    
+}
+.meal-header{
+    font-family: inherit;
+    
+}
+.meal-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.meal-body h6{
+    margin-left: 10px;
+    color: darkorange;
+
+}
+.meal-body p{
+    cursor: pointer;
+    text-decoration: underline;
+    color: cadetblue;
+}
+.meal-body .fav-btn{
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.holder{
+    display: none;
+}
+.meal-desc{
+    display: flex;
+    flex-direction: column;
+}
+ .fav-btn i{
+    color: rgb(150, 148, 148);
+    margin-right: 10px;
+    
+}
+.fav-btn i.active{
+    color: rgb(248, 14, 14)
+}
