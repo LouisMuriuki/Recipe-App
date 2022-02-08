@@ -52,42 +52,55 @@ header button.active{
     cursor: pointer; 
 }
 .fav-container {
-    max-width: 480px;
+    width: 480px;
     background-color: rgb(238, 238, 195);
     border-radius: 5px;
     text-align: center;
+    
 }
 .fav-container h5{
     text-align: center;
 }
-.fav-meals{
-    padding: 0px;
-   
-}
-.fav-meals ul{
-    padding-left: 0px;
+.fav-container .fav-meals{
+    padding: 0px;  
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row; 
+    overflow: hidden;
+}
+.fav-meals  li{
+    padding-left: 0px;
+    overflow: hidden;
     list-style: none;
-  
-}
-.fav-meals ul li{
+    display: flex;
+    flex-direction: column;
     padding: 5px;
+    
 }
-.fav-meals ul li img{
+.fav-meals  li img{
     border: 1px solid #444;
     border-radius: 50%;
     object-fit: cover;
     width: 50px;
     height: 50px;
+    
 }
-.fav-meals ul li span{
-    font-size: 6px;
-    display: flex;
+.fav-meals li span{
+    font-size: 10px;
+    float: left;
     justify-content: center;
     align-items: center;
 }
+.fav-meals li i{
+    display: none;
+
+}
+i#clear.fa.fa-window-close{
+    cursor: pointer;
+    opacity: .2;
+}i#clear.fa.fa-window-close:hover{
+    opacity: .9;
+}
+
 .meals{
     margin-bottom: 18px;
 }
