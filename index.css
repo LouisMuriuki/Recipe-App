@@ -61,13 +61,13 @@ header button.active{
 .fav-container h5{
     text-align: center;
 }
-.fav-container .fav-meals{
+.fav-container .fav-meals {
     padding: 0px;  
     display: flex;
     flex-direction: row; 
     overflow: hidden;
 }
-.fav-meals  li{
+.fav-meals  li {
     padding-left: 0px;
     overflow: hidden;
     list-style: none;
