@@ -64,30 +64,36 @@ shows.forEach((show)=>{
     const images = document.querySelectorAll('.meal-header > img')
     favBtns.forEach((favBtn,i)=>{
       favBtn.addEventListener("click", ()=>{
-        favBtn.classList.toggle("active")? (myFavMeals.push({src: images[i].src, alt: images[i].alt}) && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))) : (myFavMeals.pop() && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals)))  
-        let favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
-        let meallist="" 
-        favmeals.forEach(favmeal => {
-         favmeals.length==="0"? meallist-=`
-         <li class="favMeallist">
-         <img src=${favmeal.src} alt=${favmeal.alt}>
-         <span>${favmeal.alt}</span>
-         <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
-         </li>  
-     ` 
-     : meallist=`
-               <li class="favMeallist">
-               <img src=${favmeal.src} alt=${favmeal.alt}>
-               <span>${favmeal.alt}</span>
-               <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
-               </li>  
-           ` 
-          })
-          document.querySelector(".fav-meals").innerHTML=meallist
-        
-        
-    })
-    
+        favBtn.classList.toggle("active") 
+        let meallist=""
+          if(favBtn.classList.contains("active")){   
+        myFavMeals.push({src: images[i].src, alt: images[i].alt})
+        && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))
+        const favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
+           meallist=`
+          <li class="favMeallist">
+          <img src=${favmeals[i].src} alt=${favmeals[i].alt}>
+          <span>${favmeals[i].alt}</span>
+          </li>  
+      `  // <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
+      document.querySelector(".fav-meals").innerHTML+=meallist
+    }  else{
+      myFavMeals.pop()  && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))
+      const favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
+      document.querySelector(".fav-meals").innerHTML=""
+      meallist=`
+      <li class="favMeallist">
+      <img src=${favmeals[i].src} alt=${favmeals[i].alt}>
+      <span>${favmeals[i].alt}</span>
+      
+      </li>      
+  `
+  // <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
+  document.querySelector(".fav-meals").innerHTML+=meallist
+    }
+          
+               
+    })  
     })
           
   }).catch((err)=>{
@@ -153,24 +159,37 @@ function getMealBySearch(){
         const images = document.querySelectorAll('.meal-header > img')
         favBtns.forEach((favBtn,i)=>{
           favBtn.addEventListener("click", ()=>{
-            favBtn.classList.toggle("active")? (myFavMeals.push({src: images[i].src, alt: images[i].alt}) && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))) : (myFavMeals.pop() && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals)))  
-            let favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
-            let meallist="" 
-            favmeals.forEach(favmeal => {
-             favmeals.length==="0"? meallist="" : meallist=`
-                   <li class="favMeallist">
-                   <img src=${favmeal.src} alt=${favmeal.alt}>
-                   <span>${favmeal.alt}</span>
-                   <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
-                   </li>  
-               ` 
-              })
-              document.querySelector(".fav-meals").innerHTML=meallist
-            
-            
-        })
-        
+            favBtn.classList.toggle("active") 
+            let meallist=""
+              if(favBtn.classList.contains("active")){   
+            myFavMeals.push({src: images[i].src, alt: images[i].alt})
+            && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))
+            const favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
+               meallist=`
+              <li class="favMeallist">
+              <img src=${favmeals[i].src} alt=${favmeals[i].alt}>
+              <span>${favmeals[i].alt}</span>
+              </li>  
+          `  // <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
+          document.querySelector(".fav-meals").innerHTML+=meallist
+        }  else{
+          myFavMeals.pop()  && localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))
+          const favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
+          document.querySelector(".fav-meals").innerHTML=""
+          meallist=`
+          <li class="favMeallist">
+          <img src=${favmeals[i].src} alt=${favmeals[i].alt}>
+          <span>${favmeals[i].alt}</span>
+          
+          </li>      
+      `
+      // <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
+      document.querySelector(".fav-meals").innerHTML+=meallist
+        }
+              
+                   
         })  
+        })
     }).catch((err)=>{
       console.log(err)
   })
@@ -181,40 +200,43 @@ function getMealBySearch(){
      getMealBySearch()
      
     
-        function showMeal(){
-          let favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
-          let meallist="" 
-          favmeals.forEach(favmeal => {
-           favmeals.length==="0"? meallist="" : meallist=`
-                 <li class="favMeallist">
-                 <img src=${favmeal.src} alt=${favmeal.alt}>
-                 <span>${favmeal.alt}</span>
-                 <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
-                 </li>  
-             ` 
-            })
-            document.querySelector(".fav-meals").innerHTML=meallist
+        // function showMeal(){
+        //   let favmeals= JSON.parse(localStorage.getItem("myFavMeals"))
+
+        //   if (favmeals===0) {
+        //     document.querySelector(".fav-meals").innerHTML=""
+        //   }
+        //   else{
+        //     document.querySelector(".fav-meals").innerHTML=""
+        //     let meallist="" 
+        //     meallist=`
+        //           <li class="favMeallist">
+        //           <img src=${favmeals[i].src} alt=${favmeals[i].alt}>
+        //           <span>${favmeals[i].alt}</span>
+        //           <i class="fa fa-window-close" onClick="clearfav()" id="clear"</i>
+        //           </li>  
+        //       ` 
  
-        }
+        //      document.querySelector(".fav-meals").innerHTML=meallist
+  
+        //   }
+         
+        // }
         
-            function clearfav(){
-            const clears=document.querySelectorAll("i#clear.fa.fa-window-close")
-            clears.forEach(clear=>{
-            clear.addEventListener("click",()=>{
-            let favmeals=JSON.parse(localStorage.getItem("myFavMeals"))
-            favmeals.forEach((favmeal,i)=>{           
-            favmeals.splice((favmeal.src,favmeal.alt),1)   
-            myFavMeals=favmeals
-            localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))
-            console.log((favmeal.src,favmeal.alt))   
-              })
-              show()  
-               
-            }) 
-           
-          })
+        //     function clearfav(){
+        //     const clears=document.querySelectorAll("i#clear.fa.fa-window-close")
+        //     clears.forEach((clear,index)=>{
+        //     clear.addEventListener("click",()=>{
+        //     let favmeals=JSON.parse(localStorage.getItem("myFavMeals"))
+        //     favmeals.splice(favmeals[index],1)   
+        //     myFavMeals=favmeals
+        //     localStorage.setItem("myFavMeals", JSON.stringify(myFavMeals))
+ 
+        //     showMeal()
+        //   })
+        // })
           
-          }
+        //   }
           
        
             
